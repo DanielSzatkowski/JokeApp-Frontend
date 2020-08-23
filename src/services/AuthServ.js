@@ -1,6 +1,7 @@
 import {axiosRegistration as req} from './httpRequest';
 
 class AuthServ {
+    
     authorize(username, password) {
         req.post('/login', {
             username: username,
@@ -15,6 +16,14 @@ class AuthServ {
         }).catch((err) => {
             console.log(err);
         });
+    }
+
+    getUserToken() {
+        if(localStorage.getItem('token')) {
+            return localStorage.getItem('token');
+        }
+
+        return false;
     }
 }
 
