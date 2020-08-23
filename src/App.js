@@ -8,6 +8,7 @@ import JokesList from "./components/jokesList";
 import JokeInfo from "./components/jokeInfo";
 import UserInfo from "./components/userInfo";
 import PageNotFound from "./components/pageNotFound";
+import Login from "./components/forms/login";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Switch>
           <Route exact path={"/"} component={Home}/>
           <Route exact path={"/jokes"} component={JokesList}/>
+          <Route exact path={"/login"} component={Login}/>
           <Route exact path={"/jokes/:id"} component={JokeInfo}/>
           <Route exact path={"/users/:id"} component={UserInfo}/>
           <Route component={PageNotFound}/>

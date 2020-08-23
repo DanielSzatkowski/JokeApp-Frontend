@@ -14,4 +14,4 @@ const axiosRegistration = axios.create({
     }
 });
 
-export const axiosRegistration;
+export { axiosRegistration };
