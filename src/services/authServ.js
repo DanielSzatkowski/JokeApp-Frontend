@@ -25,8 +25,6 @@ class AuthServ {
             console.log("User's token not known!")
             return '';
         }
-
-        return false;
     }
 }
 
