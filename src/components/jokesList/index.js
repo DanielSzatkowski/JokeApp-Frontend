@@ -1,3 +1,3 @@
-import JokesList from "./jokesList";
+import JokesList from "./JokesList";
 
 export default JokesList;

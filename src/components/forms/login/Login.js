@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import Auth from '../../../services/AuthServ';
+import Auth from '../../../services/authServ';
 import { Spinner } from 'react-bootstrap';
 
 class Login extends Component {

@@ -1,3 +1,3 @@
-import JokeInfo from "./jokeInfo";
+import JokeInfo from "./JokeInfo";
 
 export default JokeInfo;
