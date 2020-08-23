@@ -7,13 +7,9 @@ class UserServ {
 
     constructor(props) {
         super(props);
-
-        if(auth.getUserToken() !== false) {
-            this.#config = {
-                Authorization: auth.getUserToken()
-            }
-        } else {
-            console.log("User's token not known!");
+    
+        this.#config = {
+            Authorization: auth.getUserToken()
         }
     }
 

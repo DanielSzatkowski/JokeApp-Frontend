@@ -21,6 +21,9 @@ class AuthServ {
     getUserToken() {
         if(localStorage.getItem('token')) {
             return localStorage.getItem('token');
+        } else {
+            console.log("User's token not known!")
+            return '';
         }
 
         return false;
