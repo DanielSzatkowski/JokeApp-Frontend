@@ -12,7 +12,7 @@ class AuthServ {
                 localStorage.setItem('username', username);
             }
 
-            return Response.headers;
+            return resp.headers;
         }).catch((err) => {
             console.log(err);
         });

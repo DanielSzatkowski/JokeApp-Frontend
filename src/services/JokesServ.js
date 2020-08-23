@@ -39,7 +39,7 @@ class JokesServ {
     }
 
     /* PUT requests */
-    updateJoke(id, joke, category) {
+    updateJoke(id, joke, categories) {
         return req.post('/jokes/' + id, {
             categories,
             content: joke
