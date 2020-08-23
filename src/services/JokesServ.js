@@ -1,5 +1,5 @@
 import req from './httpRequest';
-import auth from './AuthServ';
+import auth from './authServ';
 
 class JokesServ {
     
