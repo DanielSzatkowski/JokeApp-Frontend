@@ -5,24 +5,24 @@ class UserServ {
 
     #config = {}
 
-    constructor(props) {
-        super(props);
-    
+    constructor(props) {   
         this.#config = {
             Authorization: auth.getUserToken()
         }
     }
 
     /* GET requests */
-    getBtId(id) {
-        return req.get('/uers/' + id, config);
+    getById(id) {
+        return req.get('/users/' + id, this.#config);
     }
 
     getOwnerOfComent(commentId) {
-        return req.get('/users/owner/' + commentId + '/comment', config);
+        return req.get('/users/owner/' + commentId + '/comment', this.#config);
     }
 
     getOwnerofJoke(jokeId) {
-        return req.get('/users/owner/' + jokeId + '/joke', config);
+        return req.get('/users/owner/' + jokeId + '/joke', this.#config);
     }
 }
+
+export default new UserServ();

@@ -7,8 +7,6 @@ class CommentsServ{
     #config = {}
 
     constructor(props){
-        super(props);
-
         if(auth.getUserToken() !== false) {
             this.#config = {
                 Authorization: auth.getUserToken()

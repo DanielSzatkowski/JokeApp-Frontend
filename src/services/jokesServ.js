@@ -6,8 +6,6 @@ class JokesServ {
     #config = {}
 
     constructor(props) {
-        super(props);
-
         this.#config = {
             Authorization: auth.getUserToken()
         }
