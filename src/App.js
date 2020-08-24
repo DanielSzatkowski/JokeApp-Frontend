@@ -20,6 +20,9 @@ function App() {
           <Nav className="mr-auto">
             <Nav.Link href="/jokes"> Jokes </Nav.Link>
           </Nav>
+          <Nav className="ml-auto">
+            <Nav.Link href="login"> Log in </Nav.Link>
+          </Nav>
         </Navbar>
       </div>
 
