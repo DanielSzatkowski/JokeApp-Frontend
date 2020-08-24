@@ -11,6 +11,8 @@ function CardElement(props){
             </Row>
             <Row className="justify-content-center text-center px-5">
                 <h3> {props.title} </h3>
+            </Row>
+            <Row className="justify-content-center text-center px-5">
                 {props.content}
             </Row>
         </Col>
