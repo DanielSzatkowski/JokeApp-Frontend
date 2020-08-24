@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import CardElement from "../cardElement";
 import worldIcon from "../../../img/earth-globe.png";
 import userFriendlyIcon from "../../../img/user-friendly.png";
