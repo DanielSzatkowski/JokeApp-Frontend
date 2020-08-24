@@ -4,7 +4,7 @@ class AuthServ {
     
     authorize(username, password) {
         req.post('/login', {
-            username: username,
+            login: username,
             password
         }).then(resp => {
             if(resp.headers['Authorization']) {
