@@ -29,17 +29,19 @@ class Login extends Component {
                 })}
                 onSubmit = {(values, {setSubmitting, resetForm}) => {
                     setSubmitting(true);
+                    console.log(typeof Auth.authorize());
+
                     Auth.authorize(values.login, values.password)
                         .then(() => {
-                            this.props.history.push(""); //TODO: navigation
+                            this.props.history.push("/"); //TODO: navigation
                             window.location.reload();
                         })
                         .catch((err) => {
                             if(err.response.status === 401) {
                                 this.setState({ wrongPassword: true });
+                            } else {
+                                console.log(err);
                             }
-
-                            console.log(err);
                         });
 
                     setSubmitting(false);

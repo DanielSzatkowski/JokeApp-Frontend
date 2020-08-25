@@ -15,6 +15,8 @@ class AuthServ {
             return resp.headers;
         }).catch((err) => {
             console.log(err);
+
+            return err;
         });
     }
 
