@@ -6,6 +6,11 @@ class AuthServ {
         return (req.post('/login', {
             login: username,
             password
+        }).then((resp) => {
+            if(resp.headers['authorization']) {
+                localStorage.setItem('token', resp.headers['authorization'])
+                localStorage.setItem('login', username);
+            }
         }));
     }
 
