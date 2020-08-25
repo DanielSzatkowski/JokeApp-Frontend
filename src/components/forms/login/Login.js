@@ -10,7 +10,7 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            wrongPassword: false
+            loginFailed: false
         }
     }
 
@@ -28,19 +28,17 @@ class Login extends Component {
                         .required('Password is required!')
                 })}
                 onSubmit = {(values, {setSubmitting, resetForm}) => {
-                    setSubmitting(true); 
+                    setSubmitting(true);
+                    console.log(typeof Auth.authorize());
 
                     Auth.authorize(values.login, values.password)
                         .then(() => {
-                            this.props.history.push("/"); //TODO: navigation
+                            this.props.history.push("/jokes"); //TODO: navigation
                             window.location.reload();
                         })
                         .catch((err) => {
-                            if(err.response.status === 401) {
-                                this.setState({ wrongPassword: true });
-                            } else {
-                                console.log(err);
-                            }
+                            this.setState({ loginFailed: true });
+                            console.log(err);
                         });
 
                     setSubmitting(false);
@@ -67,7 +65,7 @@ class Login extends Component {
                             className={(errors.password && touched.password) ? 'is-invalid' : ''}
                         />
                         <ErrorMessage name="password" component="div" className="invalid-feedback" />
-                        { this.state.wrongPassword ? <div> wrong password </div> : null }
+                        { this.state.loginFailed ? <div> Login has failed! Please try again! </div> : null }
 
                         <button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? <Spinner animation="border"/> : "Submit" }
