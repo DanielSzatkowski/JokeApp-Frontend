@@ -3,21 +3,10 @@ import {axiosRegistration as req} from './httpRequest';
 class AuthServ {
     
     authorize(username, password) {
-        req.post('/login', {
+        return (req.post('/login', {
             login: username,
             password
-        }).then(resp => {
-            if(resp.headers['Authorization']) {
-                localStorage.setItem('token', resp.headers['Authorization']);
-                localStorage.setItem('username', username);
-            }
-
-            return resp.headers;
-        }).catch((err) => {
-            console.log(err);
-
-            return err;
-        });
+        }));
     }
 
     getUserToken() {

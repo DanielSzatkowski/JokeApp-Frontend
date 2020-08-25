@@ -28,8 +28,7 @@ class Login extends Component {
                         .required('Password is required!')
                 })}
                 onSubmit = {(values, {setSubmitting, resetForm}) => {
-                    setSubmitting(true);
-                    console.log(typeof Auth.authorize());
+                    setSubmitting(true); 
 
                     Auth.authorize(values.login, values.password)
                         .then(() => {
