@@ -25,7 +25,7 @@ function Footer(props){
                     </a>
                 </Col>
             </Row>
-            <Row className="footer justify-content-center">
+            <Row className="footer justify-content-center text-center">
                 Daniel Szatkowski (danielszatkowski432@gmail.com)<br />
                 Damian Szatkowski (damianszatkowski387@gmail.com)
             </Row>
