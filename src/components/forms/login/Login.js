@@ -35,7 +35,6 @@ class Login extends Component {
                         })}
                         onSubmit = {(values, {setSubmitting, resetForm}) => {
                             setSubmitting(true);
-                            console.log("tutaj");
 
                             Auth.authorize(values.login, values.password)
                                 .then(() => {

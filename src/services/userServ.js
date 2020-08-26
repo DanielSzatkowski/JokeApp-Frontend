@@ -7,7 +7,9 @@ class UserServ {
 
     constructor(props) {   
         this.#config = {
-            Authorization: auth.getUserToken()
+            headers: {
+                Authorization: auth.getUserToken()
+            }
         }
     }
 
