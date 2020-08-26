@@ -9,7 +9,9 @@ class CommentsServ{
     constructor(props){
         if(auth.getUserToken() !== false) {
             this.#config = {
-                Authorization: auth.getUserToken()
+                headers: {
+                    Authorization: auth.getUserToken()
+                }
             }
         } else {
             console.log("User's token not known!");
@@ -43,7 +45,7 @@ class CommentsServ{
     }
 
     delete(id){
-        return req.delete("/comments/" + id, config);
+        return req.delete("/comments/" + id, this.#config);
     }
 
 }

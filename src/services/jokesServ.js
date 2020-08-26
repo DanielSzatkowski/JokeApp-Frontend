@@ -5,27 +5,33 @@ class JokesServ {
     
     #config = {}
 
-    constructor(props) {
-        this.#config = {
-            Authorization: auth.getUserToken()
+    constructor(props){
+        if(auth.getUserToken() !== false) {
+            this.#config = {
+                headers: {
+                    Authorization: auth.getUserToken()
+                }
+            }
+        } else {
+            console.log("User's token not known!");
         }
     }
 
     /* GET requests */
     getAllJokes() {
-        return req.get('/jokes', config);
+        return req.get('/jokes', this.#config);
     }
 
     getJoke(id) {
-        return req.get('/jokes/' + id, config);
+        return req.get('/jokes/' + id, this.#config);
     }
 
     getAllJokesByCategories(category) {
-        return req.get('/jokes/' + category.forEach((element) => element = ','), config);
+        return req.get('/jokes/' + category.forEach((element) => element = ','), this.#config);
     }
 
     getJokesOfUser(id) {
-        return req.get('/jokes/user/' + id, config);
+        return req.get('/jokes/user/' + id, this.#config);
     }
 
     /* POST requests */
@@ -33,7 +39,7 @@ class JokesServ {
         return req.post('/jokes', {
             categories,
             content: joke
-        }, config);
+        }, this.#config);
     }
 
     /* PUT requests */
@@ -41,12 +47,12 @@ class JokesServ {
         return req.post('/jokes/' + id, {
             categories,
             content: joke
-        }, config);
+        }, this.#config);
     }
 
     /* DELETE requests */
     deleteJoke(id) {
-        return req.delete('/jokes/' + id, config);
+        return req.delete('/jokes/' + id, this.#config);
     }
 }
 

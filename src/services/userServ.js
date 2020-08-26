@@ -5,11 +5,15 @@ class UserServ {
 
     #config = {}
 
-    constructor(props) {   
-        this.#config = {
-            headers: {
-                Authorization: auth.getUserToken()
+    constructor(props){
+        if(auth.getUserToken() !== false) {
+            this.#config = {
+                headers: {
+                    Authorization: auth.getUserToken()
+                }
             }
+        } else {
+            console.log("User's token not known!");
         }
     }
 
