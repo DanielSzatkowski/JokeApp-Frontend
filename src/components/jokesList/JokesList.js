@@ -17,7 +17,7 @@ class JokesList extends Component {
 
             console.log(that.state.jokes);
         }).catch(err => {
-            window.alert("Cannot download jokes!")
+            window.alert("Cannot download jokes!");
             console.log(err);
         });
     }
