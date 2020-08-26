@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Container, Row, Col} from 'react-bootstrap';
 import ContentCard from '../contentCard';
+import { UserSignature } from '../userInfo';
 import jokesServ from '../../services/jokesServ';
 import userServ from '../../services/userServ';
 import commentsServ from "../../services/commentsServ";
@@ -46,8 +47,6 @@ class JokeInfo extends Component {
                     this.setState({
                         jokesComments: resp.data
                     });
-
-                    console.log(this.state);
                 }).catch((err) => {
                     console.log(err);
                     window.alert("Cannot download jokes comments!");
@@ -68,12 +67,24 @@ class JokeInfo extends Component {
         return(
             <Container>
                 <Row>
-                    <Col className="md-8">
+                    <Col md={4}>
                         <ContentCard content={this.state.joke.content} categories={this.state.joke.categories} id={this.state.joke.id}></ContentCard>
                     </Col>
-                    <Col className="md-4">
-                        
+                    <Col md={4}>
+                        <UserSignature user={this.state.owner}></UserSignature>
                     </Col>
+                </Row>
+
+                <Row>
+                    {this.state.jokesComments.map((commentObj) => {
+                        return (
+                            <ContentCard content={commentObj.content} 
+                                authorName={commentObj.creatorLogin} 
+                                authorId={commentObj.creatorId}
+                                key={commentObj.id}>
+                            </ContentCard>
+                        )
+                    })}
                 </Row>
             </Container>
         )

@@ -14,14 +14,14 @@ function ContentCard(props) {
                     
                     <Card.Text> {props.content} </Card.Text>
                     
-                    {props.categories.map((category, i) => {
+                    {props.categories && props.categories.map((category, i) => {
                         return (
                             <Card.Text key={props.id.toString() + i.toString()}>{category}</Card.Text>
                         )
                     })}
 
                     { props.authorName ? (
-                        <Button className="mx-1 mb-1"> Visit "{props.authorName}" profile </Button> //TODO add href
+                        <Button className="mx-1 mb-1" href={"/users/" + props.authorId}> Visit "{props.authorName}" profile </Button> //TODO add href
                     ) : (<></>)
                     }
                     { props.comments ? (
