@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-import jokesServ from "../../services/jokesServ"
+import jokesServ from "../../services/jokesServ";
+import constentCard from "../contentCard"
+import ContentCard from "../contentCard";
 
 class JokesList extends Component {
     state = {
@@ -27,12 +29,7 @@ class JokesList extends Component {
                     return (
                         <a href={"/jokes/" + jokeObj.id} key={jokeObj.id}>
                             <li>
-                                {jokeObj.content}
-                                {jokeObj.categories.map((category, i) => {
-                                    return (
-                                        <p key={jokeObj.id.toString() + i.toString()}>{category}</p>
-                                    )
-                                })}
+                                <ContentCard content={jokeObj.content} categories={jokeObj.categories} id={jokeObj.id}></ContentCard>
                             </li>
                         </a>
                         );
