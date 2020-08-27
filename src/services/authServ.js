@@ -22,6 +22,24 @@ class AuthServ {
             return '';
         }
     }
+
+    register(login, password, email, description) {
+        let userObj = {
+            login, 
+            password, 
+            email, 
+            description
+        }
+
+        return (
+            req.post('/registration', userObj)
+        );
+    }
+
+    logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('login');
+    }
 }
 
 export default new AuthServ();

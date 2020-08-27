@@ -38,7 +38,7 @@ class Login extends Component {
 
                             Auth.authorize(values.login, values.password)
                                 .then(() => {
-                                    this.props.history.push("/jokes"); //TODO: navigation
+                                    this.props.history.push("/jokes"); 
                                     window.location.reload();
                                 })
                                 .catch((err) => {

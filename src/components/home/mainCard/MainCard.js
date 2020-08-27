@@ -25,7 +25,7 @@ function MainCard(props) {
                         variant="outline-light"
                         size="lg"
                         className="ml-3"
-                    //TODO add registration href
+                        href="/registration"
                     >
                         Sign up!
                     </Button>
