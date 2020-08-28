@@ -29,6 +29,7 @@ class JokeAdd extends Component {
                 <Modal show={this.state.showSuccess} onHide={()=>{this.setState({showSuccess: false})}}>
                     <Modal.Header closeButton>
                         <Modal.Title>Joke added successfully!</Modal.Title>
+                        <p>Your joke was successfully added!</p>
                     </Modal.Header>
                 </Modal>
 

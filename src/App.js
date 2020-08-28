@@ -11,6 +11,7 @@ import PageNotFound from "./components/pageNotFound";
 import Login from "./components/forms/login";
 import Registration from "./components/forms/registration";
 import JokeAdd from "./components/jokeAdd";
+import CommentAdd from "./components/commentAdd";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route exact path={"/login"} component={Login}/>
           <Route exact path={"/jokes/:id"} component={JokeInfo}/>
           <Route exact path={"/joke/add"} component={JokeAdd} />
+          <Route exact path={"/comment/add/:jokeId"} component={CommentAdd} />
           <Route exact path={"/users/:id"} component={UserInfo}/>
           <Route exact path={"/registration"} component={Registration}/>
           <Route component={PageNotFound}/>
