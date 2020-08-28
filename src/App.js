@@ -12,6 +12,7 @@ import Login from "./components/forms/login";
 import Registration from "./components/forms/registration";
 import JokeAdd from "./components/jokeAdd";
 import CommentAdd from "./components/commentAdd";
+import auth from "./services/authServ";
 
 function App() {
   return (
@@ -25,7 +26,10 @@ function App() {
             <Nav.Link href="/joke/add"> Add Joke </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link href="login"> Log in </Nav.Link>
+            <Nav.Link href="/login"> Log in </Nav.Link>
+            <Nav.Link href="/" onClick={auth.logout}>
+              Log out
+            </Nav.Link>
           </Nav>
         </Navbar>
       </div>
