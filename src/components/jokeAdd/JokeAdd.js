@@ -54,14 +54,12 @@ class JokeAdd extends Component {
                         jokeServ.addJoke(values.content, values.categories)
                             .then(() => {
                                 this.setShowSuccess(true);
-                                console.log("dodany");
                             })
                             .catch((err) => {
                                 this.setState({addingJokeFailed: true});
                                 console.log(err);
                             });
 
-                        // window.location.reload();
                         console.log(values.categories);
                         setSubmitting(false);
                         values.categories.splice(0, values.categories.length);
@@ -95,8 +93,8 @@ class JokeAdd extends Component {
                                     key={index}
                                     value={category}
                                     id={category}
-                                    defaultChecked={false}
-                                    onClick={()=>{
+                                    checked={(values.categories.includes(category))}
+                                    onChange={()=>{
                                         if(values.categories.includes(category)){
                                             const index = values.categories.indexOf(category);
                                             if(index > -1){
