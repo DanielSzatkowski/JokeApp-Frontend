@@ -29,7 +29,10 @@ function App() {
             }
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link href="/login"> Log in </Nav.Link>
+            { (localStorage.getItem('token') === null) &&
+              <Nav.Link href="/login"> Log in </Nav.Link>
+            }
+
             { (localStorage.getItem('token') !== null) &&
             <Nav.Link href="/" onClick={auth.logout}>
               Log out
