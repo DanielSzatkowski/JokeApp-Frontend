@@ -40,15 +40,12 @@ function App() {
           <Route exact path={"/"} component={Home}/>
           <PrivateRoute exact path={"/jokes"} component={JokesList}/>
           <Route exact path={"/login"} component={Login}/>
-<<<<<<< HEAD
-          <Route exact path={"/jokes/:id"} component={JokeInfo}/>
-          <Route exact path={"/joke/add"} component={JokeAdd} />
-          <Route exact path={"/comment/add/:jokeId"} component={CommentAdd} />
-          <Route exact path={"/users/:id"} component={UserInfo}/>
-=======
+          <PrivateRoute exact path={"/jokes/:id"} component={JokeInfo}/>
+          <PrivateRoute exact path={"/joke/add"} component={JokeAdd} />
+          <PrivateRoute exact path={"/comment/add/:jokeId"} component={CommentAdd} />
+          <PrivateRoute exact path={"/users/:id"} component={UserInfo}/>
           <PrivateRoute exact path={"/jokes/:id"} component={JokeInfo}/>
           <PrivateRoute exact path={"/users/:id"} component={UserInfo}/>
->>>>>>> added restrictions for users who haven't logged in yet
           <Route exact path={"/registration"} component={Registration}/>
           <Route component={PageNotFound}/>
         </Switch>
