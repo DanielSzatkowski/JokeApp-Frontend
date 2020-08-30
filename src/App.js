@@ -24,13 +24,17 @@ function App() {
 
           <Nav className="mr-auto">
             <Nav.Link href="/jokes"> Jokes </Nav.Link>
-            <Nav.Link href="/joke/add"> Add Joke </Nav.Link>
+            { (localStorage.getItem('token') !== null) &&
+              <Nav.Link href="/joke/add"> Add Joke </Nav.Link>
+            }
           </Nav>
           <Nav className="ml-auto">
             <Nav.Link href="/login"> Log in </Nav.Link>
+            { (localStorage.getItem('token') !== null) &&
             <Nav.Link href="/" onClick={auth.logout}>
               Log out
             </Nav.Link>
+            }
           </Nav>
         </Navbar>
       </div>
