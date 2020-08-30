@@ -5,6 +5,7 @@ import { UserSignature } from '../userInfo';
 import jokesServ from '../../services/jokesServ';
 import userServ from '../../services/userServ';
 import commentsServ from "../../services/commentsServ";
+import CommentsList from "../commentsList";
 
 class JokeInfo extends Component {
     state = {
@@ -26,9 +27,7 @@ class JokeInfo extends Component {
             jokes: [],
             comments: [],
             rolesAsGrantedAuthorities: []
-        },
-
-        jokesComments: []
+        }
     }
 
     componentDidMount() {
@@ -41,15 +40,6 @@ class JokeInfo extends Component {
                 this.setState({
                     owner: resp.data
                 });
-
-                commentsServ.getAllOfJoke(jokeResp.data.id).then((resp) => {
-                    this.setState({
-                        jokesComments: resp.data
-                    });
-                }).catch((err) => {
-                    console.log(err);
-                    window.alert("Cannot download jokes comments!");
-                });
             }).catch((err) => {
                 console.log(err);
                 window.alert("Cannot download info about the owner of the joke!");
@@ -61,6 +51,7 @@ class JokeInfo extends Component {
     }
 
     render(){
+        let jokeId = this.state.joke.id;
         return(
             <Container>
                 <Row>
@@ -72,17 +63,9 @@ class JokeInfo extends Component {
                     </Col>
                 </Row>
 
-                <Row>
-                    {this.state.jokesComments.map((commentObj) => {
-                        return (
-                            <ContentCard content={commentObj.content} 
-                                authorName={commentObj.creatorLogin} 
-                                authorId={commentObj.creatorId}
-                                key={commentObj.id}>
-                            </ContentCard>
-                        )
-                    })}
-                </Row>
+
+                <CommentsList jokeId={jokeId}/>
+
 
                 <Row>
                     <Button href={"/comment/add/" + this.props.match.params.id}>
