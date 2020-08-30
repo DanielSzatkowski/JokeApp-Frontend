@@ -13,6 +13,7 @@ import Registration from "./components/forms/registration";
 import JokeAdd from "./components/jokeAdd";
 import CommentAdd from "./components/commentAdd";
 import auth from "./services/authServ";
+import PrivateRoute from './utils/PrivateRoute'
 
 function App() {
   return (
@@ -37,12 +38,17 @@ function App() {
       <div>
         <Switch>
           <Route exact path={"/"} component={Home}/>
-          <Route exact path={"/jokes"} component={JokesList}/>
+          <PrivateRoute exact path={"/jokes"} component={JokesList}/>
           <Route exact path={"/login"} component={Login}/>
+<<<<<<< HEAD
           <Route exact path={"/jokes/:id"} component={JokeInfo}/>
           <Route exact path={"/joke/add"} component={JokeAdd} />
           <Route exact path={"/comment/add/:jokeId"} component={CommentAdd} />
           <Route exact path={"/users/:id"} component={UserInfo}/>
+=======
+          <PrivateRoute exact path={"/jokes/:id"} component={JokeInfo}/>
+          <PrivateRoute exact path={"/users/:id"} component={UserInfo}/>
+>>>>>>> added restrictions for users who haven't logged in yet
           <Route exact path={"/registration"} component={Registration}/>
           <Route component={PageNotFound}/>
         </Switch>
