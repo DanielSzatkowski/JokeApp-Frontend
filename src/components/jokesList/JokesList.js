@@ -59,7 +59,7 @@ class JokesList extends Component {
     }
 
     render(){
-        const {page, size, totalPages, totalElements} = this.state;
+        const {page, totalPages} = this.state;
 
         return(
             <>
