@@ -18,7 +18,8 @@ class JokesServ {
     }
 
     /* GET requests */
-    getAllJokes() {
+    getAllJokes(params) {
+        this.#config.params = params;
         return req.get('/jokes', this.#config);
     }
 
