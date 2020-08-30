@@ -52,7 +52,6 @@ function App() {
           <PrivateRoute exact path={"/comment/add/:jokeId"} component={CommentAdd} />
           <PrivateRoute exact path={"/users/:id"} component={UserInfo}/>
           <PrivateRoute exact path={"/jokes/:id"} component={JokeInfo}/>
-          <PrivateRoute exact path={"/users/:id"} component={UserInfo}/>
           <Route exact path={"/registration"} component={Registration}/>
           <Route component={PageNotFound}/>
         </Switch>
