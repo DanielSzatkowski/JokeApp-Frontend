@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col, Button} from 'react-bootstrap';
 import ContentCard from '../contentCard';
 import { UserSignature } from '../userInfo';
 import jokesServ from '../../services/jokesServ';
@@ -58,8 +58,6 @@ class JokeInfo extends Component {
             console.log(err);
             window.alert("Cannot download joke!");
         });
-
-        console.log(this.state);
     }
 
     render(){
@@ -84,6 +82,12 @@ class JokeInfo extends Component {
                             </ContentCard>
                         )
                     })}
+                </Row>
+
+                <Row>
+                    <Button href={"/comment/add/" + this.props.match.params.id}>
+                        Add comment
+                    </Button>
                 </Row>
             </Container>
         )
