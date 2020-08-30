@@ -70,9 +70,6 @@ class UserInfo extends Component {
                                     } 
                                 </Card.Text>
                                 <Card.Text> Joined: {user.creationDate} </Card.Text>
-                                
-                                <Button className="mx-1 mb-1"> View jokes of user </Button>     {/*TODO add href*/}
-                                <Button className="mx-1 mb-1"> View comments of user </Button>  {/*TODO add href*/}
                             </Card.Body>
                         </Card>
 
