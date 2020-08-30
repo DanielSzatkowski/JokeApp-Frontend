@@ -23,7 +23,8 @@ class CommentsServ{
         return req.get("/comments", this.#config);
     }
 
-    getAllOfJoke(jokeId){
+    getAllOfJoke(jokeId, params){
+        this.#config.params = params;
         return req.get("/comments/joke/" + jokeId, this.#config);
     }
 

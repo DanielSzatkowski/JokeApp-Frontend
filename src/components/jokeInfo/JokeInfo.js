@@ -37,7 +37,6 @@ class JokeInfo extends Component {
                 joke: jokeResp.data
             });
 
-            //userServ.getById(this.state.joke.creator).then((resp) => {
             userServ.getById(jokeResp.data.creator).then((resp) => {
                 this.setState({
                     owner: resp.data
