@@ -22,23 +22,26 @@ function App() {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Brand href="/"> JokeApp </Navbar.Brand>
 
-          <Nav className="mr-auto">
-            <Nav.Link href="/jokes"> Jokes </Nav.Link>
-            { (localStorage.getItem('token') !== null) &&
-              <Nav.Link href="/joke/add"> Add Joke </Nav.Link>
-            }
-          </Nav>
-          <Nav className="ml-auto">
-            { (localStorage.getItem('token') === null) &&
-              <Nav.Link href="/login"> Log in </Nav.Link>
-            }
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/jokes"> Jokes </Nav.Link>
+              { (localStorage.getItem('token') !== null) &&
+                <Nav.Link href="/joke/add"> Add Joke </Nav.Link>
+              }
+            </Nav>
+            <Nav className="ml-auto">
+              { (localStorage.getItem('token') === null) &&
+                <Nav.Link href="/login"> Log in </Nav.Link>
+              }
 
-            { (localStorage.getItem('token') !== null) &&
-            <Nav.Link href="/" onClick={auth.logout}>
-              Log out
-            </Nav.Link>
-            }
-          </Nav>
+              { (localStorage.getItem('token') !== null) &&
+              <Nav.Link href="/" onClick={auth.logout}>
+                Log out
+              </Nav.Link>
+              }
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       </div>
 
