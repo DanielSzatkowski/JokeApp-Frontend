@@ -2,6 +2,7 @@ import React from "react";
 import {Card} from "react-bootstrap";
 import anonymousUser from "../../../img/anonymoususer.png";
 import "../userinfo.css";
+import userServ from "../../../services/userServ";
 
 
 function UserSignature(props){
@@ -9,7 +10,7 @@ function UserSignature(props){
     let user = props.user;
 
     if(user && user.avatar){
-        //TODO base64 decoding
+        user.avatar = "data:image/jpeg;base64," + user.avatar;
     } else {
         user.avatar = anonymousUser;
     }

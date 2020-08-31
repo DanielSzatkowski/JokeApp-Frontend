@@ -49,7 +49,7 @@ class UserInfo extends Component {
         if(!user.avatar){
             user.avatar = anonymousUser;
         } else {
-            //TODO base64 decoding
+            user.avatar = "data:image/jpeg;base64," + user.avatar;
         }
 
         console.log(user);
