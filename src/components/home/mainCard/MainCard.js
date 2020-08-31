@@ -5,7 +5,7 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 function MainCard(props) {
 
     return (
-        <Container fluid className="main-container">
+        <Container fluid className="main-container text-center">
             <Row className="justify-content-center">
                 <h1> JokeApp </h1>
             </Row>

@@ -14,7 +14,7 @@ function AppInfo(props){
                 />
                 <CardElement img={userFriendlyIcon}
                     title={"User-friendly application"}
-                    content={"JokeApp is really user-friendly. So, it's easy to register and use!"}
+                    content={"JokeApp is really user-friendly. So, it's easy to register and use! You don't have to waste hours just to understand how interface work!"}
                 />
             </Row>
         </Container>
