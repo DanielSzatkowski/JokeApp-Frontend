@@ -66,7 +66,7 @@ class CommentsList extends Component {
                 });
             }).catch(err => {
                 console.log("Cannot download comments!");
-            })
+            });
     }
 
 

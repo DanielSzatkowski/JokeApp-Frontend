@@ -15,18 +15,6 @@ class JokeInfo extends Component {
             creator: '',
             categories: [],
             comments: []
-        },
-
-        owner: {
-            id: 1,
-            email: "",
-            login: "",
-            description: null,
-            avatar: null,
-            creationDate: "",
-            jokes: [],
-            comments: [],
-            rolesAsGrantedAuthorities: []
         }
     }
 
@@ -36,14 +24,6 @@ class JokeInfo extends Component {
                 joke: jokeResp.data
             });
 
-            userServ.getById(jokeResp.data.creator).then((resp) => {
-                this.setState({
-                    owner: resp.data
-                });
-            }).catch((err) => {
-                console.log(err);
-                window.alert("Cannot download info about the owner of the joke!");
-            });
         }).catch((err) => {
             console.log(err);
             window.alert("Cannot download joke!");
@@ -52,6 +32,8 @@ class JokeInfo extends Component {
 
     render(){
         let jokeId = this.state.joke.id;
+
+        console.log("here " + this.state.joke.creator.id);
         return(
             <Container>
                 <Row>
@@ -59,7 +41,7 @@ class JokeInfo extends Component {
                         <ContentCard content={this.state.joke.content} categories={this.state.joke.categories} id={this.state.joke.id}></ContentCard>
                     </Col>
                     <Col md={4}>
-                        <UserSignature user={this.state.owner}></UserSignature>
+                        <UserSignature userId={this.state.joke.creator}></UserSignature>
                     </Col>
                 </Row>
 

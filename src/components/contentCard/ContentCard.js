@@ -16,9 +16,9 @@ function ContentCard(props) {
                     <Card.Text> {props.content} </Card.Text>
                     
                     {(props.categories) &&
-                        (<text>
+                        (<small>
                             categories: {props.categories.join(", ")}
-                        </text>)
+                        </small>)
                     }
 
                     { props.authorName ? (
