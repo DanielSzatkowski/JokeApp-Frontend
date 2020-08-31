@@ -1,7 +1,9 @@
 import React, {Component} from "react";
+import {Container, Row, Col} from "react-bootstrap";
 import jokesServ from "../../services/jokesServ";
 import ContentCard from "../contentCard";
 import { Pagination } from "@material-ui/lab";
+import "../../index.css";
 
 class JokesList extends Component {
 
@@ -62,28 +64,37 @@ class JokesList extends Component {
         const {page, totalPages} = this.state;
 
         return(
-            <>
-                <ul>
-                    {this.state.jokes.map((jokeObj) => {
-                        return (
-                            <a href={"/jokes/" + jokeObj.id} key={jokeObj.id}>
-                                <li>
-                                    <ContentCard content={jokeObj.content} categories={jokeObj.categories} id={jokeObj.id}></ContentCard>
-                                </li>
-                            </a>
-                        );
-                    })}
-                </ul>
-                <Pagination
-                    count={totalPages}
-                    page={page}
-                    siblingCount={1}
-                    boundaryCount={1}
-                    variant="outlined"
-                    shape="rounded"
-                    onChange={this.handlePageChange}
-                />
-            </>
+            <Container fluid className="background-container">
+                <Row className="pt-5 pb-3 justify-content-center">
+                    <h1 className="header-title">Recent Jokes</h1>
+                </Row>
+                <Row>
+                    <Col>
+                    <ul className="no-bullet">
+                        {this.state.jokes.map((jokeObj) => {
+                            return (
+                                <a href={"/jokes/" + jokeObj.id} key={jokeObj.id} className="no-text-deco">
+                                    <li>
+                                        <ContentCard content={jokeObj.content} categories={jokeObj.categories} id={jokeObj.id} />
+                                    </li>
+                                </a>
+                            );
+                        })}
+                    </ul>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center pt-2 pb-5">
+                    <Pagination
+                        count={totalPages}
+                        page={page}
+                        siblingCount={1}
+                        boundaryCount={1}
+                        variant="outlined"
+                        shape="rounded"
+                        onChange={this.handlePageChange}
+                    />
+                </Row>
+            </Container>
         )
     };
 }

@@ -19,3 +19,17 @@ code {
 .foreground-container {
   background: white;
 }
+
+.no-bullet {
+  list-style-type: none;
+}
+
+.no-text-deco:hover {
+  text-decoration: none;
+}
+
+.header-title {
+  text-decoration: underline;
+  color: #cceeff;
+}
+
