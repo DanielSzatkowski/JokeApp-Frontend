@@ -21,11 +21,7 @@ function ContentCard(props) {
                     })}
 
                     { props.authorName ? (
-                        <Button className="mx-1 mb-1" href={"/users/" + props.authorId}> Visit "{props.authorName}" profile </Button> //TODO add href
-                    ) : (<></>)
-                    }
-                    { props.comments ? (
-                        <Button className="mx-1 mb-1"> Show comments </Button>  //TODO add href
+                        <Button className="mx-1 mb-1" href={"/users/" + props.authorId}> Visit "{props.authorName}" profile </Button>
                     ) : (<></>)
                     }
                 </Card.Body>
