@@ -3,7 +3,7 @@ import {Formik} from "formik";
 import * as Yup from "yup";
 import {jokeCategoriesConst} from "../../constants";
 import jokeServ from "../../services/jokesServ";
-import {Row, Form, Alert, Spinner, Button, Modal} from "react-bootstrap";
+import {Row, Form, Alert, Spinner, Button, Modal, Container, Col} from "react-bootstrap";
 
 
 class JokeAdd extends Component {
@@ -69,67 +69,82 @@ class JokeAdd extends Component {
 
                 {({values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit}) => (
 
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group as={Row}>
-                            <Form.Control
-                                type="text"
-                                placeholder="content"
-                                name="content"
-                                value={values.content}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={touched.content && errors.content}
-                                disabled={isSubmitting}
-                            />
-                        </Form.Group>
-                        {(touched.content && errors.content) && (
-                            <Form.Control.Feedback type="invalid">{errors.content} </Form.Control.Feedback>
-                        )}
+                    <Container className="justify-content-center" >
+                        <Form onSubmit={handleSubmit}>
+                        <Col md={{span:8, offset: 2}}>
+                            <Row className="pt-5 pb-3 justify-content-center">
+                                <h1 className="header-title">Add Joke!</h1>
+                            </Row>
+                            <Row className="justify-content-center mt-4 mb-3 mx-5 px-5">
+                                <Col>
+                                    <Form.Group>
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="content"
+                                            name="content"
+                                            value={values.content}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            isInvalid={touched.content && errors.content}
+                                            disabled={isSubmitting}
+                                        />
+                                    </Form.Group>
+                                    {(touched.content && errors.content) && (
+                                        <Form.Control.Feedback type="invalid">{errors.content} </Form.Control.Feedback>
+                                    )}
+                                </Col>
+                            </Row>
 
-                        {jokeCategoriesConst.map( (category, index) => (
-                            <>
-                                <input
-                                    type="checkbox"
-                                    key={index}
-                                    value={category}
-                                    id={category}
-                                    checked={(values.categories.includes(category))}
-                                    onChange={()=>{
-                                        if(values.categories.includes(category)){
-                                            const index = values.categories.indexOf(category);
-                                            if(index > -1){
-                                                values.categories.splice(index, 1);
-                                            }
-                                        } else {
-                                            values.categories.push(category);
-                                        }   
-                                        this.setState({radioButtonTouched: true});
-                                    }}
-                                />
-                                <label htmlFor={category}>{category.toLowerCase().replace("_", " ")}</label> <br />
-                            </>
-                        ))}
-                        {() => {
-                            let isTouched = this.state.radioButtonTouched;
-                            console.log("jestem");
-                            return(
-                                (isTouched && errors.categories) && (<Form.Control.Feedback type="invalid">{errors.categories}</Form.Control.Feedback>)
-                            );
-                        }}
-
-                        {this.state.addingJokeFailed ? (
-                            <Alert variant="danger">
-                                <Alert.Heading> Adding joke failed! </Alert.Heading>
-                                <p> Please try again later... </p>
-                            </Alert> ) : null
-                        }
-
-                        <Form.Group as={Row} className="d-flex justify-content-center mx-5">
-                            <Button type="submit" disabled={isSubmitting} className="d-flex justify-content-center mx-5">
-                                {isSubmitting ? <Spinner animation="border"/> : "Add joke" }
-                            </Button>
-                        </Form.Group>
-                    </Form>
+                            <Row xs={2} className="mx-5 px-5 text-center mt-3">
+                                {jokeCategoriesConst.map( (category, index) => (
+                                    <Col>
+                                        <input
+                                            type="checkbox"
+                                            key={index}
+                                            value={category}
+                                            id={category}
+                                            checked={(values.categories.includes(category))}
+                                            onChange={()=>{
+                                                if(values.categories.includes(category)){
+                                                    const index = values.categories.indexOf(category);
+                                                    if(index > -1){
+                                                        values.categories.splice(index, 1);
+                                                    }
+                                                } else {
+                                                    values.categories.push(category);
+                                                }   
+                                                this.setState({radioButtonTouched: true});
+                                            }}
+                                        />
+                                        <label htmlFor={category}> {category.toLowerCase().replace("_", " ")} </label> <br />
+                                    </Col>
+                                ))}
+                                {() => {
+                                    let isTouched = this.state.radioButtonTouched;
+                                    console.log("jestem");
+                                    return(
+                                        (isTouched && errors.categories) && (<Form.Control.Feedback type="invalid">{errors.categories}</Form.Control.Feedback>)
+                                    );
+                                }}
+                            </Row>
+                            <Row>
+                                {this.state.addingJokeFailed ? (
+                                    <Alert variant="danger">
+                                        <Alert.Heading> Adding joke failed! </Alert.Heading>
+                                        <p> Please try again later... </p>
+                                    </Alert> ) : null
+                                }
+                            </Row>
+                            <Row className="justify-content-center mt-5">
+                                <Form.Group as={Row} className="d-flex justify-content-center mx-5">
+                                    <Button type="submit" disabled={isSubmitting} className="d-flex justify-content-center mx-5">
+                                        {isSubmitting ? <Spinner animation="border"/> : "Add joke" }
+                                    </Button>
+                                </Form.Group>
+                            </Row>
+                        </Col>
+                        </Form>
+                    </Container>
                 )}
 
                 </Formik>
