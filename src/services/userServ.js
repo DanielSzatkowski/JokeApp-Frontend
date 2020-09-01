@@ -1,5 +1,7 @@
 import req from './httpRequest';
+import {axiosUploadImage as reqImage} from './httpRequest';
 import auth from './authServ';
+import axios from 'axios';
 
 class UserServ {
 
@@ -28,6 +30,25 @@ class UserServ {
 
     getOwnerofJoke(jokeId) {
         return req.get('/users/owner/' + jokeId + '/joke', this.#config);
+    }
+
+    /* POST requests */
+    uploadAvatar(formData){
+        let customConfig = this.#config;
+        customConfig["Content-Type"] = "multipart/form-data";
+
+        /*return reqImage.post('/users/image', this.#config, {
+            "data": formData
+        });*/
+
+        return axios("http://localhost:8443/api/users/image", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: this.#config.headers.Authorization,
+            },
+            data: formData,
+        })
     }
 }
 

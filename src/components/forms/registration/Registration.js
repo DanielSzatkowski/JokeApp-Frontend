@@ -9,7 +9,7 @@ class Registration extends Component {
         super(props);
 
         this.state = {
-            regisitrationFailed: false
+            regisitrationFailed: false,
         }
     }
 
@@ -147,7 +147,7 @@ class Registration extends Component {
                                 )}
 
                                 { this.state.registrationFailed ? <div> Registration has failed! Please try again! </div> : null }
-                                
+
                                 <Form.Group as={Row} className="d-flex justify-content-center mx-5">
                                     <Button type="submit" disabled={isSubmitting} className="d-flex justify-content-center mx-5">
                                         {isSubmitting ? <Spinner animation="border"/> : "Register" }

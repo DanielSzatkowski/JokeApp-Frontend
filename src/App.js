@@ -14,6 +14,7 @@ import JokeAdd from "./components/jokeAdd";
 import CommentAdd from "./components/commentAdd";
 import auth from "./services/authServ";
 import PrivateRoute from './utils/PrivateRoute'
+import UploadImage from './components/UploadImage/UploadImage';
 
 function App() {
   return (
@@ -30,15 +31,22 @@ function App() {
                 <Nav.Link href="/joke/add"> Add Joke </Nav.Link>
               }
             </Nav>
+            
             <Nav className="ml-auto">
               { (localStorage.getItem('token') === null) &&
                 <Nav.Link href="/login"> Log in </Nav.Link>
               }
 
               { (localStorage.getItem('token') !== null) &&
-              <Nav.Link href="/" onClick={auth.logout}>
-                Log out
-              </Nav.Link>
+              <>  
+                <Nav.Link href="/change-profile-photo">
+                  Change your profile photo
+                </Nav.Link>
+
+                <Nav.Link href="/" onClick={auth.logout}>
+                  Log out
+                </Nav.Link>
+              </>
               }
             </Nav>
           </Navbar.Collapse>
@@ -54,6 +62,7 @@ function App() {
           <PrivateRoute exact path={"/joke/add"} component={JokeAdd} />
           <PrivateRoute exact path={"/comment/add/:jokeId"} component={CommentAdd} />
           <PrivateRoute exact path={"/users/:id"} component={UserInfo}/>
+          <PrivateRoute exact path={"/change-profile-photo"} component={UploadImage}/>
           <Route exact path={"/registration"} component={Registration}/>
           <Route component={PageNotFound}/>
         </Switch>

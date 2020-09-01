@@ -14,4 +14,12 @@ const axiosRegistration = axios.create({
     }
 });
 
+const axiosUploadImage = axios.create({
+    baseURL: "http://localhost:8443",
+    headers: {
+        //"Content-Type": "multipart/form-data"
+    }
+});
+
 export { axiosRegistration };
+export { axiosUploadImage };
