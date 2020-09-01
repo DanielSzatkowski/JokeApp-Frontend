@@ -6,6 +6,7 @@ import jokesServ from '../../services/jokesServ';
 import userServ from '../../services/userServ';
 import commentsServ from "../../services/commentsServ";
 import CommentsList from "../commentsList";
+import "../../index.css";
 
 class JokeInfo extends Component {
     state = {
@@ -32,27 +33,33 @@ class JokeInfo extends Component {
 
     render(){
         let jokeId = this.state.joke.id;
-
-        console.log("here " + this.state.joke.creator.id);
         return(
-            <Container>
-                <Row>
-                    <Col md={4}>
-                        <ContentCard content={this.state.joke.content} categories={this.state.joke.categories} id={this.state.joke.id}></ContentCard>
-                    </Col>
-                    <Col md={4}>
-                        <UserSignature userId={this.state.joke.creator}></UserSignature>
-                    </Col>
-                </Row>
+            <Container className="py-5" fluid>
 
+                <Row className="justify-content-center">
+                    <Row className="mt-3 mb-3">
+                        <h1 className="header-title"> { "Joke #" + this.state.joke.id }</h1>
+                    </Row>
+                    <Row>
+                        <Col md={9} className="justify-content-center">
+                            <Row className="my-5">
+                                <ContentCard content={this.state.joke.content} categories={this.state.joke.categories} id={this.state.joke.id}></ContentCard>
+                            </Row>
+                            <Row className="justify-content-center">
+                                <strong>Comments:</strong>
+                                <CommentsList jokeId={jokeId}/>
+                            </Row>
+                            <Row className="justify-content-center py-4">
+                                <Button href={"/comment/add/" + this.props.match.params.id}>
+                                    Add comment
+                                </Button>
+                            </Row>
+                        </Col>
 
-                <CommentsList jokeId={jokeId}/>
-
-
-                <Row>
-                    <Button href={"/comment/add/" + this.props.match.params.id}>
-                        Add comment
-                    </Button>
+                        <Col md={3} className="justify-content-center text-center py-5">
+                            <UserSignature userId={this.state.joke.creator}></UserSignature>
+                        </Col>
+                    </Row>
                 </Row>
             </Container>
         )

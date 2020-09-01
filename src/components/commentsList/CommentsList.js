@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Col, Row, Container} from "react-bootstrap";
 import commentServ from "../../services/commentsServ";
 import ContentCard from "../contentCard";
 import { Pagination } from "@material-ui/lab";
@@ -74,29 +75,32 @@ class CommentsList extends Component {
         const {page, totalPages} = this.state;
 
         return(
-            <>
-                <ul>
-                    {this.state.comments.map((commentObj) => {
-                        return(
-                            <ContentCard content={commentObj.content} 
-                                authorName={commentObj.creatorLogin} 
-                                authorId={commentObj.creatorId}
-                                key={commentObj.id}>
-                            </ContentCard>
-                        );
-                    })}
-                </ul>
-
-                <Pagination
-                    count={totalPages}
-                    page={page}
-                    siblingCount={1}
-                    boundaryCount={1}
-                    variant="outlined"
-                    shape="rounded"
-                    onChange={this.handlePageChange}
-                />
-            </>
+            <Container fluid>
+                <Col>
+                    <Row className="justify-content-center">
+                            {this.state.comments.map((commentObj) => {
+                                return(
+                                    <ContentCard content={commentObj.content} 
+                                        authorName={commentObj.creatorLogin} 
+                                        authorId={commentObj.creatorId}
+                                        key={commentObj.id}>
+                                    </ContentCard>
+                                );
+                            })}
+                    </Row>
+                    <Row className="justify-content-center py-3">
+                        <Pagination
+                            count={totalPages}
+                            page={page}
+                            siblingCount={1}
+                            boundaryCount={1}
+                            variant="outlined"
+                            shape="rounded"
+                            onChange={this.handlePageChange}
+                        />
+                    </Row>
+                </Col>
+            </Container>
         );
     }
 

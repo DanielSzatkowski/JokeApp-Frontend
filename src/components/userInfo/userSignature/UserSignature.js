@@ -52,7 +52,7 @@ class UserSignature extends Component {
 
         return(
 
-            <Card className="my-5 py-5">
+            <Card className="mb-5 pb-5 no border-0">
                 <Card.Img src={anonymousUser} thumbnail="true" className="profile-img mx-auto px-5 pt-2" />
                 <Card.Body>
                     <a href={'/users/' +  user.id}>
