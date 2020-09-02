@@ -14,13 +14,9 @@ class UploadImage extends Component {
 
             show: true
         }
-
-        this.handleImageChange.bind(this);
-        this.handleUpload.bind(this);
-        this.handleClose.bind(this);
     }
 
-    handleClose() {
+    handleClose = () => {
         this.setState({
             show: false
         });
@@ -58,7 +54,7 @@ class UploadImage extends Component {
 
     render(){
         return(
-            <Modal show={this.state.show} onHide={this.handleClose.bind(this)} centered>
+            <Modal show={this.state.show} onHide={this.handleClose} centered>
                 <Modal.Header closeButton className='d-flex justify-content-center mb-1 mt-2'>
                     <h3 className="text-center justify-content-center">Edit avatar</h3>
                 </Modal.Header>
