@@ -38,29 +38,29 @@ class JokeInfo extends Component {
 
                 <Row className="justify-content-center">
                     <Col>
-                    <Row xs={1} className="mt-3 mb-3 text-center">
-                        <h1 className="header-title"> { "Joke #" + this.state.joke.id }</h1>
-                    </Row>
-                    <Row>
-                        <Col md={9} className="justify-content-center">
-                            <Row className="my-5">
-                                <ContentCard content={this.state.joke.content} categories={this.state.joke.categories} id={this.state.joke.id}></ContentCard>
-                            </Row>
-                            <Row className="justify-content-center">
-                                <strong>Comments:</strong>
-                                <CommentsList jokeId={jokeId}/>
-                            </Row>
-                            <Row className="justify-content-center py-4">
-                                <Button href={"/comment/add/" + this.props.match.params.id}>
-                                    Add comment
-                                </Button>
-                            </Row>
-                        </Col>
+                        <Row xs={1} className="mt-3 mb-3 text-center">
+                            <h1 className="header-title"> { "Joke #" + this.state.joke.id }</h1>
+                        </Row>
+                        <Row>
+                            <Col md={9} className="justify-content-center">
+                                <Row className="my-5">
+                                    <ContentCard content={this.state.joke.content} categories={this.state.joke.categories} id={this.state.joke.id}></ContentCard>
+                                </Row>
+                                <Row className="justify-content-center">
+                                    <strong>Comments:</strong>
+                                    <CommentsList jokeId={jokeId}/>
+                                </Row>
+                                <Row className="justify-content-center py-4">
+                                    <Button href={"/comment/add/" + this.props.match.params.id}>
+                                        Add comment
+                                    </Button>
+                                </Row>
+                            </Col>
 
-                        <Col md={3} className="justify-content-center text-center py-5">
-                            <UserSignature userId={this.state.joke.creator}></UserSignature>
-                        </Col>
-                    </Row>
+                            <Col md={3} className="justify-content-center text-center py-5">
+                                <UserSignature userId={this.state.joke.creator}></UserSignature>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
