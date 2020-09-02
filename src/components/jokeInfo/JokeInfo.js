@@ -37,7 +37,8 @@ class JokeInfo extends Component {
             <Container className="py-5" fluid>
 
                 <Row className="justify-content-center">
-                    <Row className="mt-3 mb-3">
+                    <Col>
+                    <Row xs={1} className="mt-3 mb-3 text-center">
                         <h1 className="header-title"> { "Joke #" + this.state.joke.id }</h1>
                     </Row>
                     <Row>
@@ -60,6 +61,7 @@ class JokeInfo extends Component {
                             <UserSignature userId={this.state.joke.creator}></UserSignature>
                         </Col>
                     </Row>
+                    </Col>
                 </Row>
             </Container>
         )
