@@ -2,19 +2,19 @@
     margin:0;
     padding-bottom: 15%;
     padding-top: 8%;
-    background-image: linear-gradient(to bottom, #0066ff 55%, #3366ff 100%);
+    background-color: #A0D2EB;
     color: #cceeff
 }
 
 .additional-info {
-    background:    grey;
+    background:    #E5EAF5;
     padding-top: 4%;
     padding-bottom: 10%;
     font-size: large;
-    color: #cceeff;
+    color: #3a383b;
 }
 
 .footer {
-    background: #343a40;
-    color: #cceeff
+    background: #D0BDF4;
+    color: #0a5175
 }

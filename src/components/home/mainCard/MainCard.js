@@ -22,7 +22,7 @@ function MainCard(props) {
                         Log in!
                     </Button>
                     <Button
-                        variant="outline-light"
+                        variant="outline-info"
                         size="lg"
                         className="ml-3"
                         href="/registration"

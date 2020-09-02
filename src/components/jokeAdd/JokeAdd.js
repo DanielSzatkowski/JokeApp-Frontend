@@ -80,6 +80,7 @@ class JokeAdd extends Component {
                                     <Form.Group>
                                         <Form.Control
                                             type="text"
+                                            as="textarea"
                                             placeholder="content"
                                             name="content"
                                             value={values.content}

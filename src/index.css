@@ -13,12 +13,12 @@ code {
 }
 
 .background-container {
-  background: grey;
+  background: #A0D2EB;
   min-height: 100vh;
 }
 
 .foreground-container {
-  background: white;
+  background: #D0B0F4;
 }
 
 .no-bullet {
@@ -31,6 +31,18 @@ code {
 
 .header-title {
   text-decoration: underline;
-  color: #cceeff;
+  color: white;
 }
 
+div, Row, Container, form, label {
+  /*font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+label {
+  margin: 1vh;
+}
