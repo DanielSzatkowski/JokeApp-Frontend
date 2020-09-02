@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {Formik} from "formik";
 import * as Yup from "yup";
 import commentServ from "../../services/commentsServ";
-import {Form, Modal, Row, Alert, Button, Spinner} from "react-bootstrap";
+import {Form, Modal, Row, Alert, Button, Spinner, Container} from "react-bootstrap";
+import "./comment-add.css";
 
 
 class CommentAdd extends Component {
@@ -59,36 +60,40 @@ class CommentAdd extends Component {
                 >
 
                 {({values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit}) => (
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group as={Row}>
-                            <Form.Control
-                                type="text"
-                                placeholder="content"
-                                name="content"
-                                value={values.content}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={touched.content && errors.content}
-                                disabled={isSubmitting}
-                            />
-                        </Form.Group>
-                        {(touched.content && errors.content) && (
-                            <Form.Control.Feedback type="invalid">{errors.content} </Form.Control.Feedback>
-                        )}
+                    <Container>
+                        <h2>Add comment</h2>
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group as={Row}>
+                                <Form.Control
+                                    type="text"
+                                    as="textarea"
+                                    placeholder="content"
+                                    name="content"
+                                    value={values.content}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    isInvalid={touched.content && errors.content}
+                                    disabled={isSubmitting}
+                                />
+                            </Form.Group>
+                            {(touched.content && errors.content) && (
+                                <Form.Control.Feedback type="invalid">{errors.content} </Form.Control.Feedback>
+                            )}
 
-                        {this.state.addingCommentFailed && (
-                            <Alert variant="danger">
-                                <Alert.Heading> Adding joke failed! </Alert.Heading>
-                                <p> Please try again later... </p>
-                            </Alert> )
-                        }
+                            {this.state.addingCommentFailed && (
+                                <Alert variant="danger">
+                                    <Alert.Heading> Adding joke failed! </Alert.Heading>
+                                    <p> Please try again later... </p>
+                                </Alert> )
+                            }
 
-                        <Form.Group as={Row} className="d-flex justify-content-center mx-5">
-                            <Button type="submit" disabled={isSubmitting} className="d-flex justify-content-center mx-5">
-                                {isSubmitting ? <Spinner animation="border"/> : "Add comment" }
-                            </Button>
-                        </Form.Group>
-                    </Form>                    
+                            <Form.Group as={Row} className="d-flex justify-content-center mx-5">
+                                <Button type="submit" disabled={isSubmitting} className="d-flex justify-content-center mx-5">
+                                    {isSubmitting ? <Spinner animation="border"/> : "Add comment" }
+                                </Button>
+                            </Form.Group>
+                        </Form>
+                    </Container>                    
                 )}
 
                 </Formik>
