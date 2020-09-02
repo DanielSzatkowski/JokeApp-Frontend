@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import userServ from '../../services/userServ';
 import Modal from 'react-bootstrap/Modal';
-import { Button } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 class UploadImage extends Component {
 
@@ -60,59 +60,40 @@ class UploadImage extends Component {
         return(
             <Modal show={this.state.show} onHide={this.handleClose.bind(this)} centered>
                 <Modal.Header closeButton className='d-flex justify-content-center mb-1 mt-2'>
-                    <h3>Edit avatar</h3>
+                    <h3 className="text-center justify-content-center">Edit avatar</h3>
                 </Modal.Header>
                 <Modal.Body className='d-flex justify-content-center'>
-                    <label htmlFor='upload-button'>
-                        {this.state.preview ? (
-                            <img
-                                src={this.state.preview}
-                                alt='cannot load image'
-                                width='300'
-                                height='300'
-                            />
-                        ) : (
-                            <>
-                                <h5 className='text-center'>choose photo</h5>
-                            </>
-                        )}
-                    </label>
+                    <Container>
+                        <Row className="text-center justify-content-center">
+                            <label htmlFor='upload-button'>
+                                {this.state.preview ? (
+                                    <img
+                                        src={this.state.preview}
+                                        alt='cannot load image'
+                                        width='300'
+                                        height='300'
+                                    />
+                                ) : (
+                                    <>
+                                        <h5 className='text-center'>choose photo</h5>
+                                    </>
+                                )}
+                            </label>
+                        </Row>
 
-                    <input
-                        type='file'
-                        id='upload-button'
-                        style={{ display: 'none' }}
-                        onChange={this.handleImageChange}
-                    />
-                    <br />
-                    <button onClick={this.handleUpload}>Send photo</button>
+                        <Row className="text-center justify-content-center">
+                            <input
+                                type='file'
+                                id='upload-button'
+                                style={{ display: 'none' }}
+                                onChange={this.handleImageChange}
+                            />
+                            <br />
+                            <button onClick={this.handleUpload}>Send photo</button>
+                        </Row>
+                    </Container>
                 </Modal.Body>
             </Modal>
-
-            /*<div>
-                <label htmlFor='upload-button'>
-                    {this.state.preview ? (
-                        <img
-                            src={this.state.preview}
-                            alt='dummy'
-                            width='300'
-                            height='300'
-                        />
-                    ) : (
-                        <>
-                            <h5 className='text-center'>choose photo</h5>
-                        </>
-                    )}
-                </label>
-                <input
-                    type='file'
-                    id='upload-button'
-                    style={{ display: 'none' }}
-                    onChange={this.handleImageChange}
-                />
-                <br />
-                <button onClick={this.handleUpload}>Send photo</button>
-            </div>*/
         );
     };
 }
